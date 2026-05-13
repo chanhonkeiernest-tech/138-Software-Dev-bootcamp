@@ -4,7 +4,11 @@
   "main": "practce2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "dev":"nodemon practce2.js"
+=======
+    "dev":"nodemon crud.js"
+>>>>>>> 001d8e12b6444b165ce37d3067b9438088781d77
   },
   "keywords": [],
   "author": "",
