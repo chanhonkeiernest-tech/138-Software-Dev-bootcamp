@@ -1,9 +1,9 @@
 // TODO 1: Create an array named "colors" with at least 5 color names (e.g., "red", "blue", "green", etc.)
 
-
+let colors=["red", "blue", "green"];
 
 // TODO 2: Log the array to the console
-
+console.log(colors);
 
 // TODO 3: Log the length of the array using the length property
 

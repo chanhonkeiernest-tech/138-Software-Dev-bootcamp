@@ -10,4 +10,4 @@ The repository contains sample code for classes and Labs.
 
 - **Do not push directly to this repository**. This is a shared starter repo meant to track the structure and resources for the bootcamp.
 
-Good luck, and happy coding!
+Good luck, and happy coding! r

@@ -8,7 +8,13 @@ function displaySimpleJSON() {
       age: 25,
       hobbies: ["reading", "traveling", "coding"]
     };
-  
+    const output=document.getElementById('output-simple');
+    output.innerHTML=`<p>name: ${person.name}</p>
+    <p>age: ${person.age}</p>
+    <p>hobbies: ${person.hobbies}</p>
+    `;
+    
+    
     // TODO: Access and display properties of the JSON object
     
   }
@@ -23,7 +29,9 @@ function displaySimpleJSON() {
       { name: "Charlie", age: 35 }
     ];
   
-   
+   people.forEach(person=>{
+    
+   });
   
     // TODO: Loop through the JSON array and display each object as a list item
     
@@ -41,15 +49,20 @@ function displaySimpleJSON() {
     };
   
     // Convert object to JSON string
-   
+    const Stringfile=JSON.stringify(exampleObject);
   
     // Convert JSON string back to object
-    
+    const jobject=JSON.parse(Stringfile);
   
     // TODO: Display both the stringified and parsed JSON on the webpage
+    const output=document.getElementById('output-methods');
+    output.innerHTML=`<p>String: ${Stringfile}</p>
+    <p>object: ${jobject}</p>
     
+    `;
   }
   
   // Call the functions for demonstration
 
-  
+  displaySimpleJSON();
+  practiceJSONMethods();

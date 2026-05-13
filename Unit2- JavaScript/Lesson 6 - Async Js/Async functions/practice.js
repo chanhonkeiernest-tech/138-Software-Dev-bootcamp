@@ -4,6 +4,13 @@ console.log("Execution started");
 function fetchUserData(userId) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+    var user={ userId: 1, name: "John Doe" };
+      if(userID==1){
+        resolve(user);
+      }else{
+        reject("User not found");
+      }
+      
       // TODO: Complete this logic to simulate a valid or invalid userId
       // If userId is 1, resolve with a user object, e.g., { userId: 1, name: "John Doe" }
       // If userId is not 1, reject with an error message, e.g., "User not found"
@@ -16,6 +23,7 @@ function getUserData(userId) {
   // TODO: Use fetchUserData with the provided userId
   // Use .then() to log the user data if the promise resolves successfully
   // Use .catch() to log the error message if the promise rejects
+  
 }
 
 // 3. Test the function with a valid userId (1)

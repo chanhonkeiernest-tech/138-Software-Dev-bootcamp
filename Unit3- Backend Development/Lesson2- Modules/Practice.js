@@ -19,10 +19,11 @@ const userData = {
 };
 
 // Write your code here:
+fs.writeFileSync(dataFilePath, JSON.stringify(userData, null, 2));
 
 // TODO: Read the file back and parse the JSON
 // Hint: Use JSON.parse() with fs.readFileSync()
-
+ const jtext=JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
 // TODO: Add a new skill to the user and update the file
 // Hint: Parse, modify, then write back with JSON.stringify()
 
