@@ -1,10 +1,10 @@
 {
   "name": "lesson4--express",
   "version": "1.0.0",
-  "main": "basics.js",
+  "main": "practce2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon basics.js"
+    "dev":"nodemon practce2.js"
   },
   "keywords": [],
   "author": "",
