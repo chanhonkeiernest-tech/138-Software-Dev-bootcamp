@@ -18,14 +18,13 @@ You will create a backend service with the following responsibilities:
   - A nested route means the note routes include the parent session ID in the path, for example `/sessions/:sessionId/notes`
 - Add support for searching and filtering session data
 - Implement validation, error handling, and basic request logging
-- Research and implement one advanced Mongoose or API pattern not shown in the main lessons
 
 ## Requirements
 
 ### 1. Project setup
 
 - Initialize a new Node.js project with `npm init -y`
-- Install required dependencies: `express`, `mongoose`, `dotenv`, and any other helpers you choose
+- Install required dependencies: `express`, `mongoose`, `dotenv`, `nodemon` and any other helpers you choose
 - Create an entrypoint file such as `server.js` or `app.js`
 - Use `.env` to store database URI and port settings
 
@@ -40,12 +39,25 @@ Create these schemas:
 - `topic` (string, required)
 - `duration` (number, minutes)
 - `level` (string, one of `beginner`, `intermediate`, `advanced`)
-- `resources` (array of subdocuments or ObjectIds referencing `Resource`)
 - `createdAt` (Date, default now)
+
+Example: in a Mongoose schema you can define `level` like this:
+
+```js
+level: {
+  type: String,
+  enum: ['beginner', 'intermediate', 'advanced'],
+  required: true,
+}
+```
+
+- `enum` means the field can only have one of the listed values.
+- It helps keep data clean by rejecting anything outside the allowed list.
+- In this example, `level` must be `beginner`, `intermediate`, or `advanced`.
 
 #### `Note`
 
-- `sessionId` (ObjectId, required, references `Session`)
+- `sessionId` (ObjectId, required, links to `Session`)
 - `author` (string, required)
 - `text` (string, required)
 - `type` (string, one of `tip`, `question`, `summary`)
@@ -56,7 +68,7 @@ Create these schemas:
 - `name` (string, required)
 - `url` (string, required)
 - `category` (string, e.g. `article`, `video`, `tool`)
-- `session` (ObjectId, optional reference to `Session`)
+- `createdAt` (Date, default now)
 
 ### 3. API routes
 
@@ -101,8 +113,8 @@ Example: `/sessions?search=security&level=advanced`
 
 - Enable CORS so a frontend can call the API. Search for `express cors` and the `cors` package.
 - Add a `GET /sessions/stats` endpoint that returns summary statistics such as total sessions, average duration, and sessions per level. Search for `mongoose aggregate`.
-- Implement `GET /sessions/:id/summary` that returns notes count and resources count.
-- Add a `DELETE /resources/:id` route and ensure session relationships are updated correctly. This means when a resource is removed, any session that referenced it should be updated so it no longer includes the deleted resource. Search for `mongoose pull from array`, `findByIdAndDelete`, and updating related documents after deletion`.
+- Implement `GET /sessions/:id/summary` that returns a simple summary object for the session, such as the session title and notes count.
+- Add a `DELETE /resources/:id` route so resources can be removed cleanly.
 
 ### 7. Example behavior
 
@@ -188,3 +200,7 @@ Response:
 - You do not need to build a frontend for this lab.
 - Focus on clear API design, maintainable code, and good error responses.
 - Write code as if this API will be used by a frontend app
+
+## Resources
+
+- Mongoose documentation: https://mongoosejs.com/
